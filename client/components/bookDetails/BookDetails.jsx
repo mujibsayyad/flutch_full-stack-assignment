@@ -1,10 +1,14 @@
+"use client";
 import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 
 import { getBookByID } from "../../hooks/axiosAPI";
 import { useRandomImage } from "../../hooks/randomImage";
 
-const BookDetails = ({ bookID }) => {
+const BookDetails = () => {
   const [bookData, setBookData] = useState([]);
+  const bookID = useParams();
+  const randomImage = useRandomImage();
 
   useEffect(() => {
     const getBookData = async () => {
@@ -24,7 +28,7 @@ const BookDetails = ({ bookID }) => {
         <div
           className="border w-3/5 p-8 rounded-lg h-60"
           style={{
-            backgroundImage: `url(${useRandomImage()})`,
+            backgroundImage: `url(${randomImage})`,
             backgroundSize: "cover",
           }}
         ></div>

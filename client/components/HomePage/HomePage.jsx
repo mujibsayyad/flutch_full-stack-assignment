@@ -28,6 +28,8 @@ const HomePage = () => {
   const [selectedBook, setSelectedBook] = useState(false);
   const [userData, setUserData] = useState([]);
 
+  const randomImage = useRandomImage();
+
   const router = useRouter();
   const userAuth = useAuth();
 
@@ -82,7 +84,7 @@ const HomePage = () => {
                 <div
                   className="border w-32 p-8 rounded-lg h-40"
                   style={{
-                    backgroundImage: `url(${useRandomImage()})`,
+                    backgroundImage: `url(${randomImage})`,
                     backgroundSize: "cover",
                   }}
                 ></div>

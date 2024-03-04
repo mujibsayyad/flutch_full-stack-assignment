@@ -9,6 +9,7 @@ import { useAuth } from "../../context/AuthContext";
 const RightSideBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const randomImage = useRandomImage();
 
   const router = useRouter();
   const userAuth = useAuth();
@@ -49,29 +50,31 @@ const RightSideBar = () => {
 
         {searchResults.length > 0 && (
           <div className="max-h-full rounded-lg mt-2 w-full bg-white border border-gray-200 shadow-md overflow-x-hidden overflow-y-scroll">
-            {searchResults.map((book) => (
-              <div
-                key={book._id}
-                className="w-40 cursor-pointer flex justify-between gap-4 p-2 text-black"
-                onClick={() => handleOnBookClick(book._id)}
-              >
+            {searchResults.map((book) => {
+              return (
                 <div
-                  className="border w-fit p-8 rounded-lg h-fit"
-                  style={{
-                    backgroundImage: `url(${useRandomImage()})`,
-                    backgroundSize: "cover",
-                  }}
-                ></div>
-                <div>
-                  <h2 className="text-lg font-semibold overflow-hidden whitespace-nowrap overflow-ellipsis">
-                    {book.title}
-                  </h2>
-                  <h2 className="overflow-hidden whitespace-nowrap overflow-ellipsis">
-                    Author: {book.author}
-                  </h2>
+                  key={book._id}
+                  className="w-40 cursor-pointer flex justify-between gap-4 p-2 text-black"
+                  onClick={() => handleOnBookClick(book._id)}
+                >
+                  <div
+                    className="border w-fit p-8 rounded-lg h-fit"
+                    style={{
+                      backgroundImage: `url(${randomImage})`,
+                      backgroundSize: "cover",
+                    }}
+                  ></div>
+                  <div>
+                    <h2 className="text-lg font-semibold overflow-hidden whitespace-nowrap overflow-ellipsis">
+                      {book.title}
+                    </h2>
+                    <h2 className="overflow-hidden whitespace-nowrap overflow-ellipsis">
+                      Author: {book.author}
+                    </h2>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
