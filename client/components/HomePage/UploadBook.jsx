@@ -45,13 +45,13 @@ const UploadBook = () => {
   return (
     <div>
       <div
-        className="flex items-center gap-3 text-xl hover:bg-[#313c4270] w-fit py-2 px-6 hover:rounded-xl cursor-pointer"
+        className="flex flex-col md:flex-row items-center gap-3 text-base md:text-xl hover:bg-[#313c4270] w-fit py-2 px-6 hover:rounded-xl cursor-pointer"
         onClick={() => {
           setShowForm((prev) => !prev);
           setErrors({});
         }}
       >
-        <FaBook className="text-2xl" />
+        <FaBook className="text-lg md:text-2xl" />
         <h5>Upload New Book</h5>
       </div>
 

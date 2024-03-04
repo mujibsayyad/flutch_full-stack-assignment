@@ -69,11 +69,11 @@ const HomePage = () => {
   if (!userAuth.isAuthenticated) return null;
 
   return (
-    <div className="flex flex-col w-full h-full max-w-full relative border">
-      <div className="flex justify-end mr-20 mt-8">
+    <div className="flex flex-col w-full h-full max-w-full relative md:border">
+      <div className="flex justify-end md:mr-20 mt-8 mb-8">
         <SortBooks onSortChange={handleSortChange} />
       </div>
-      <div className="w-full md:p-16 flex gap-20 flex-wrap items-center justify-center">
+      <div className="w-full md:p-16 flex gap-20 flex-wrap items-center justify-center mb-12 md:mb-0">
         {userAuth?.allBooks?.map((book) => {
           return (
             <div className="flex gap-4" key={book._id}>
@@ -118,7 +118,7 @@ const HomePage = () => {
       </div>
 
       {totalPaginationPages > 0 && (
-        <Pagination>
+        <Pagination className="py-8">
           <PaginationContent>
             <PaginationItem>
               <PaginationPrevious

@@ -27,10 +27,10 @@ const LeftSideBar = () => {
   if (!userAuth.isAuthenticated) return null;
 
   return (
-    <aside className="flex flex-col gap-4 md:px-10 md:py-24">
-      <div className="text-xl hover:bg-[#313c4270] w-fit p-2 px-6 hover:rounded-xl cursor-pointer">
-        <Link href="/" className="flex items-center gap-3">
-          <IoMdHome className="text-3xl" />
+    <aside className="flex justify-between w-full md:flex-col gap-4 md:px-10 md:py-24">
+      <div className="text-base md:text-xl hover:bg-[#313c4270] w-fit p-2 px-6 hover:rounded-xl cursor-pointer">
+        <Link href="/" className="flex flex-col md:flex-row items-center gap-3">
+          <IoMdHome className="text-lg md:text-3xl" />
           <h5>Home</h5>
         </Link>
       </div>
@@ -38,10 +38,10 @@ const LeftSideBar = () => {
       <UploadBook />
 
       <div
-        className="flex items-center gap-3 text-xl hover:bg-[#313c4270] w-fit p-2 px-6 hover:rounded-xl cursor-pointer"
+        className="flex flex-col md:flex-row items-center gap-3 text-base md:text-xl hover:bg-[#313c4270] w-fit p-2 px-6 hover:rounded-xl cursor-pointer"
         onClick={handleLogout}
       >
-        <FaUserAlt className="text-3xl" />
+        <FaUserAlt className="text-lg md:text-3xl" />
 
         <h5>Logout</h5>
       </div>

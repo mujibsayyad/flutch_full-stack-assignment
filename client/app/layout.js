@@ -17,14 +17,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`w-full ${inter.className}`}>
         <AuthProvider>
-          <div className="flex w-full h-full">
-            <div className="w-[40%]">
+          <div className="flex flex-col w-full h-full md:flex-row">
+            <div className="w-full md:w-[40%]">
               <LeftSideBar />
             </div>
 
-            <div className="w-full min-h-screen">{children}</div>
+            <div className="w-full min-h-screen order-3 md:order-2">{children}</div>
 
-            <div className="w-[40%] max-w-[40%]">
+            <div className="w-full order-2 md:w-[40%] md:max-w-[40%] md:order-2">
               <RightSideBar />
             </div>
           </div>
