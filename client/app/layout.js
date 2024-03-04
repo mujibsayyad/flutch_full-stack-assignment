@@ -1,6 +1,10 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import LeftSideBar from "../components/HomePage/LeftSideBar";
+import RightSideBar from "../components/HomePage/RightSideBar";
+import { AuthProvider } from "../context/AuthContext";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -11,7 +15,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`w-full ${inter.className}`}>
+        <AuthProvider>
+          <div className="flex w-full h-full">
+            <div className="w-[40%]">
+              <LeftSideBar />
+            </div>
+
+            <div className="w-full min-h-screen">{children}</div>
+
+            <div className="w-[40%] max-w-[40%]">
+              <RightSideBar />
+            </div>
+          </div>
+        </AuthProvider>
+      </body>
     </html>
   );
 }
