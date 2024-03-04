@@ -9,7 +9,10 @@ const app = express();
 
 app.use(helmet());
 
-const whiteList = ["http://localhost:3000"];
+const whiteList = [
+  "http://localhost:3000",
+  "https://flutch-full-stack-assignment.vercel.app",
+];
 
 const corsOption = {
   origin: whiteList,
